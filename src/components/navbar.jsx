@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 class NavBar extends Component {
 	state = {};
 	render() {
+		const { user } = this.props;
 		return (
 			<header>
 				<div className='header-logo'>NetFlix</div>
@@ -15,15 +16,26 @@ class NavBar extends Component {
 						<li>
 							<NavLink to='/favourites'>Favourites</NavLink>
 						</li>
-						<li>
-							<NavLink to='/login'>Login</NavLink>
-						</li>
-						<li>
-							<NavLink to='/register'>Register</NavLink>
-						</li>
-						<li>
-							<NavLink to='/logout'>Logout</NavLink>
-						</li>
+						{!user && (
+							<React.Fragment>
+								<li>
+									<NavLink to='/login'>Login</NavLink>
+								</li>
+								<li>
+									<NavLink to='/register'>Register</NavLink>
+								</li>
+							</React.Fragment>
+						)}
+						{user && (
+							<React.Fragment>
+								<li>
+									<NavLink to='/logout'>Logout</NavLink>
+								</li>
+								<li>
+									<NavLink to='/profile'>{user.name}</NavLink>
+								</li>
+							</React.Fragment>
+						)}
 					</ul>
 				</div>
 			</header>
