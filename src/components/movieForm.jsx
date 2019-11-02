@@ -24,7 +24,8 @@ class MovieForm extends Form {
 	};
 
 	doSubmit = () => {
-		movieService.saveMovie(this.state.data);
+        movieService.saveMovie(this.state.data);
+        this.props.history.replace("/");
 	};
 
 	render() {
