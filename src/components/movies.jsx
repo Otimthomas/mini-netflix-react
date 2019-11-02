@@ -1,9 +1,29 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import movieService from "../services/movieService";
 
 class Movies extends Component {
-	state = {};
+	state = {
+		movies: []
+	};
+
+	async componentDidMount() {
+		const { data: movies } = await movieService.getMovies();
+		console.log(movies);
+		this.setState({ movies });
+	}
 	render() {
-		return <h1>Movies component works</h1>;
+		const { movies } = this.state;
+		return (
+			<div>
+				{movies.map((movie) => (
+					<div className='movie-container' key={movie._id}>
+						<p>{movie.title}</p>
+						<img src={movie.imgUrl} />
+						<p>{movie.year}</p>
+					</div>
+				))}
+			</div>
+		);
 	}
 }
 

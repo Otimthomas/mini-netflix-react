@@ -32,6 +32,9 @@ class NavBar extends Component {
 									<NavLink to='/logout'>Logout</NavLink>
 								</li>
 								<li>
+									<NavLink to='/movieForm'>Add Movie</NavLink>
+								</li>
+								<li>
 									<NavLink to='/profile'>{user.name}</NavLink>
 								</li>
 							</React.Fragment>
