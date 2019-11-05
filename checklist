@@ -1,0 +1,17 @@
+[x] the user should be able to create a new account.
+[x] the user should be able to login
+[x] the user should be able to view the movies page
+[x] the user should be able to add a movie to the favourite page
+[x] the user should be able to logout
+
+An ordinary user can only access get requests
+
+[x] The user should not have access to routes that are protected unless logged in.
+[x] The user should be directed to the loggin page if not authenticated and trying to access a protected route
+[x] The user should be directed to the previous route path on loggin
+
+Admin user
+[] The user should be able to edit/delete a movie
+[] The user should be able to add new movies
+
+An admin user is capable of performing all requests. (CRUD);

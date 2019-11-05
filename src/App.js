@@ -10,6 +10,7 @@ import authService from "./services/authService";
 import MovieForm from "./components/movieForm";
 import FavouriteMovie from "./components/favouriteMovie";
 import MovieDetails from "./components/movieDetails";
+import ProtectedRoute from "./components/common/protectedRoute";
 
 class App extends Component {
 	state = {};
@@ -33,7 +34,7 @@ class App extends Component {
 						<Route path='/favourites' component={FavouriteMovie} />
 						<Route path='/movies/:id' component={MovieDetails} />
 						<Route path='/movies' component={Movies} />
-						<Route path='/movieForm' component={MovieForm} />
+						<ProtectedRoute path='/movieForm' component={MovieForm} />
 					</Switch>
 				</div>
 			</React.Fragment>
