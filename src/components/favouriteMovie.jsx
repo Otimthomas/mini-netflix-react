@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import movieService from "../services/movieService";
 
 class FavouriteMovie extends Component {
@@ -9,9 +10,7 @@ class FavouriteMovie extends Component {
 	async componentDidMount() {
 		const { data: movies } = await movieService.getMovies();
 		const fav = movies.filter((movie) => movie.isFavourite === true);
-		console.log(fav);
 		this.setState({ movies: fav });
-		console.log(this.state.movies);
 	}
 
 	render() {
@@ -21,9 +20,11 @@ class FavouriteMovie extends Component {
 			<div>
 				{this.state.movies.map((movie) => (
 					<div className='movie-container' key={movie._id}>
-						<p>{movie.title}</p>
-						<img src={movie.imgUrl} />
-						<p>{movie.year}</p>
+						<NavLink to={`movies/${movie._id}`}>
+							<p>{movie.title}</p>
+							<img src={movie.imgUrl} />
+							<p>{movie.year}</p>
+						</NavLink>
 					</div>
 				))}
 			</div>

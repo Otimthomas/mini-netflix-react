@@ -9,6 +9,7 @@ import Movies from "./components/movies";
 import authService from "./services/authService";
 import MovieForm from "./components/movieForm";
 import FavouriteMovie from "./components/favouriteMovie";
+import MovieDetails from "./components/movieDetails";
 
 class App extends Component {
 	state = {};
@@ -30,6 +31,7 @@ class App extends Component {
 						<Route path='/logout' component={Logout} />
 						<Route path='/register' component={RegisterForm} />
 						<Route path='/favourites' component={FavouriteMovie} />
+						<Route path='/movies/:id' component={MovieDetails} />
 						<Route path='/movies' component={Movies} />
 						<Route path='/movieForm' component={MovieForm} />
 					</Switch>
